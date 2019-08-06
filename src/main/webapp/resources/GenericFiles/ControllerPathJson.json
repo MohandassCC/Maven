@@ -1,0 +1,6 @@
+{
+	"ControllerPath": {
+		"folder": "folder",
+		"enrich":"enrichval"
+	}
+}

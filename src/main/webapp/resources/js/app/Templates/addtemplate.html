@@ -1,0 +1,122 @@
+<div class="modal-header">
+	<h3 class="modal-title  pull-left">{{title}}</h3>
+	<button type="button" class="close pull-right" ng-click="cancel()">
+		x</button>
+</div>
+
+<form ng-submit="submit()" role="form" name="TemplateDetailsForm" novalidate
+	class="form-horizontal">
+	<div class="modal-body">
+	
+	
+		<div class="field-group">	 		
+	             		
+	         	<div id="TemplateDetailsForm-fieldset" >   
+	         	 <uib-tabset> <uib-tab index="0" heading="Template Details">       
+	         	<!-- 	 <div class="panel-body" id="addExpressionInfo">  -->
+	         		  <!-- <div style="width: 600px;height:300px;overflow: auto;"> -->
+			         		<!-- <div class="row no-margin"> -->
+			         		
+			         		<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-class="{ 'has-error' : TemplateDetailsForm.FieldName.$invalid && !TemplateDetailsForm.FieldName.$pristine}">
+								 			<label class="control-label col-sm-4">Templates Type
+											</label>
+											<div class="col-sm-8" >
+											
+											<select id="submit"  value="submit" class="form-control" ng-model="formData.tmp_object_type" ng-init="formData.tmp_object_type" required>
+											        <option value="">Choose Templates</option>    
+											<!--       <option  ng-repeat="operator in operatorsLists track by $index" ng-selected="check(this)" value="{{operator.tmp_object_type}}">{{operator.tmp_category_code}}</option>
+								 -->			   
+									 	 <option value="C" >Campaign</option>
+											 <option  value="O">Offer</option> 	                   
+										   </select>						
+											</div>
+						         </div>
+             			         <div class="clear"></div>	
+								<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-class="{ 'has-error' : TemplateDetailsForm.FieldName.$invalid && !TemplateDetailsForm.FieldName.$pristine}">
+									<label for="FieldName"  class="control-label col-sm-4"> Name</label>
+									<div class="col-sm-8">
+										<input type="text" name="name" class="form-control" id="name" ng-model="formData.tmp_short_name" ng-init="formData.tmp_short_name"  ng-class="{ 'has-error' : TemplateDetailsForm.name.$invalid }" required/>
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="row no-margin">
+								<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-class="{ 'has-error' : TemplateDetailsForm.FieldName.$invalid && !TemplateDetailsForm.FieldName.$pristine}">
+									<label for="FieldDescription" class="control-label col-sm-4"> Description</label>
+									<div class="col-sm-8">
+										<textarea name="FieldDescription" class="form-control" id="FieldDescription" ng-model="formData.tmp_long_name" rows="4" cols="50" ng-init="formData.tmp_long_name"></textarea>
+									</div>
+								</div>
+								
+									<div class="clear"></div>
+	
+      <!-- <div class="panel panel-default"> -->
+      
+           <div class="col-sm-14 ">
+          <div class="col-sm-3 " >
+             <label for="sca">Select Custom Attributes</label>             
+          <select size="5" class="form-control" multiple ng-model="newsourcecolumngroup"  ng-options="addnewcolumngroups.atr_id as addnewcolumngroups.atr_name for addnewcolumngroups in selectpushcolumngroup"></select>
+          
+        </div>
+        <div  class="col-sm-2" class="pullpushButton">
+        <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true" ng-click="moveItem(newsourcecolumngroup, selectpushcolumngroup, selectedaddcolumngroupdata)">
+        </i>
+        <i class="fa fa-chevron-circle-left fa-lg" aria-hidden="true" ng-click="moveItem(selectednewaddcolumngroup,  selectedaddcolumngroupdata, selectpushcolumngroup)">
+        </i>
+        </div>
+        <div class="col-sm-3">
+        <label for="ca">Selected Custom Attributes</label>             
+        <select size="5" class="form-control" multiple  ng-model="selectednewaddcolumngroup"" ng-options="selectednewcolumngroupdatas.atr_id as selectednewcolumngroupdatas.atr_name  for selectednewcolumngroupdatas in  selectedaddcolumngroupdata"></select>
+      </div>
+   
+   
+    <div class="col-sm-3 ">
+     <div class="clear"></div>
+           <label for="sa">Standard Attributes</label>
+        <div>Start Date</div>
+        <div>Status</div>
+        <div>Business Unit</div>
+        <div>Objective</div>
+        <div>End Date</div>
+        <div>Description</div>
+        <div>Name</div>
+        <div>Code</div>
+      </div>
+    </div>
+      </div> 
+       </div>   
+  </div>
+	                        <input type="hidden" ng-model="formData.tmp_id" ng-init="formData.tmp_id=''">
+	                        <input type="hidden" ng-model="formData.tmp_short_name" ng-init="formData.tmp_short_name =''"> 
+	                        <input type="hidden" ng-model="formData.tmp_long_name" ng-init="formData.tmp_long_name =''">
+	                        <input type="hidden" ng-model="formData.tmp_fld_id" ng-init="formData.tmp_fld_id=''">
+	                        <input type="hidden" ng-model="formData.tmp_category_code" ng-init="formData.tmp_category_code ='C'">
+	                        <input type="hidden" ng-model="formData.tmp_object_type" ng-init="formData.tmp_object_type =''">  
+	                        <input type="hidden" ng-model="formData.tmp_sort_order" ng-init="formData.tmp_sort_order='1'">
+	                        <input type="hidden" ng-model="formData.tmp_status" ng-init="formData.tmp_status='A'">
+	                        <input type="hidden" ng-model="formData.tmp_status_date" ng-init="formData.tmp_status_date=''">	              	                        						         
+						    <input type="hidden" ng-model="formData.createuser" ng-init="formData.createuser =''">
+			 				<input type="hidden" ng-model="formData.createdate" ng-init="formData.createdate =''">
+							<input type="hidden" ng-model="formData.updateuser" ng-init="formData.updateuser =''">
+							<input type="hidden" ng-model="formData.updatedate" ng-init="formData.updatedate =''">						
+							<input type="hidden" ng-model="formData.lastmodified" ng-init="formData.lastmodified =''">
+							
+							<!-- <input type="hidden" ng-model="formData.ttatmp_id" ng-init="formData.tta_tmp_id='13'">
+				            <input type="hidden" ng-model="formData.ttaatr_id" ng-init="formData.ttaatr_id='1'">  
+							<input type="hidden" ng-model="formData.ttasort_order" ng-init="formData.tta_sort_order='1'"> -->
+							
+		<div class="modal-footer">
+			<div class="pull-right">
+			<!-- 	<button type="submit" class="btn btn-primary btn-sm"
+					tool-tip-directive
+					title="{{ groupPermissionForm?'Please fill all the required fields':''}}"
+					ng-disabled="groupPermissionForm.$invalid">Submit</button> -->
+					
+					<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+					
+				<button type="reset" class="btn btn-primary btn-sm" ng-if="!edit">Reset</button>
+				<button type="button" class="btn btn-primary btn-sm"
+					ng-click="resetForm()" ng-if="edit">Reset</button>
+			</div>
+		</div>
+	
+</form>

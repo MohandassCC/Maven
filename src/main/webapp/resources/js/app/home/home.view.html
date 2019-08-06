@@ -1,0 +1,57 @@
+<div class="content " ng-controller="homeController">
+
+<div style="
+    text-align: center;
+    margin-top: 10%;
+    font-size: 74px;
+    text-shadow: 1px 1px white;
+    font-weight: bold;
+"></div>
+
+
+ <ul id="css3menu_top" class="topmenu"  style="display: block; min-width: 500px; margin: 0 auto;">
+     <li class="topmenu addClassMenu" ><a href="http://192.168.1.203:8084/orchestrator/#!" class="selectMenu">        
+         <span>Home</span></a>
+     </li>
+
+     <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!admuser" class="selectMenu">       
+         <span>user</span></a>         
+     </li>
+       <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!admgroup" class="selectMenu">       
+         <span>group</span></a>         
+     </li>
+      <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!admusergroup" class="selectMenu">       
+         <span>usergroup</span></a>         
+     </li>
+
+     <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!personalizationfields" class="selectMenu">       
+         <span>Personalization</span></a>         
+     </li>
+      <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!channeltemplate" class="selectMenu">       
+         <span>ChannelTemplate</span></a>         
+       </li>
+         <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!targetlevel" class="selectMenu">       
+         <span>TargetLevel</span></a>         
+       </li>
+       
+         <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!templates" class="selectMenu">       
+         <span>Templates</span></a>         
+       </li>
+       
+       <li class="topmenu addClassMenu"  ng-class="{active:isActive('{{menuItem.url}}')}">
+     	<a  href="#!customAttribute" class="selectMenu">       
+         <span>Custom Attribute</span></a>         
+     </li>
+     
+
+     
+
+ </ul>
+</div>

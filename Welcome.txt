@@ -1,0 +1,7 @@
+Welcome to git repository call Titan	
+Created by M.Mohandass
+data=02/02/2019
+time=01.30 PM
+Repository name=ValuateExecution
+clone=git clone gituser@192.168.1.203:CCEngage/Segment
+

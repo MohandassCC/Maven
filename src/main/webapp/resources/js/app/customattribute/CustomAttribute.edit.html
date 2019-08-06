@@ -1,0 +1,149 @@
+<div class="modal-header">
+	<h3 class="modal-title  pull-left">{{title}}</h3>
+	<button type="button" class="close pull-right" ng-click="cancel()">
+		x</button>
+</div>
+
+<form ng-submit="submit()" role="form" name="userForm" novalidate class="form-horizontal">
+	<div class="modal-body">
+
+		<div class="field-group">
+
+			<div id="userForm-fieldset">
+				<uib-tabset> <uib-tab index="0" heading="Edit Attribute">
+					
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<label class="control-label col-sm-5" for="atr_name">
+						Name</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="atr_name"
+							name="atr_name" ng-model="formdata.atr_name" required>
+					</div>
+				</div>
+				
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<label class="control-label col-sm-5" for="Custom Attribute Type">Custom Attribute Type</label>
+					<div class="col-sm-7">
+						<select id="atr_object_type" name="atr_object_type"
+							class="form-control" ng-model="formdata.atr_object_type"  required>
+							<option value="">Select</option>
+							<option value="C">Campaign</option>
+							<option value="O">Offer</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<label class="control-label col-sm-5" for="Data Type">Data Type</label>
+					<div class="col-sm-7">
+						<select id="atr_data_type" name="atr_data_type"
+							class="form-control" ng-model="formdata.atr_data_type"  required>
+							<option value="">Select</option>
+							<option value="F">Float</option>
+							<option value="S">String</option>
+							<option value="T">TimeStamp</option>
+							<option value="D">Date</option>
+							<option value="N">Numeric</option>
+						</select>
+					</div>
+				</div>
+               <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="formdata.atr_data_type =='N'">
+					<label class="control-label col-sm-5" for="Minimum Value">Minimum Value
+						</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="atr_min_value"
+							name="atr_min_value" ng-model="formdata.atr_min_value"
+							>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="formdata.atr_data_type =='N'">
+					<label class="control-label col-sm-5" for="Maximum Value">Maximum Value</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="atr_max_value"
+							name="atr_max_value" ng-model="formdata.atr_max_value">
+					</div>
+				</div>
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="formdata.atr_data_type =='S'" ng-hide="maxLength">
+					<label class="control-label col-sm-5" for="Max Length">Max Length</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="atr_max_length" ng-model="formdata.atr_max_length"
+							name="atr_max_length">
+					</div>
+				</div>
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show = "formdata.atr_data_type =='S'">
+					<label class="control-label col-sm-5" for="Required LookUp">Required LookUp</label>
+					<div class="col-sm-7">
+						<input type="checkbox"  id="atr_lookup_check"
+							name="atr_lookup_check" ng-model="lookUp" ng-change='loadLookUpCode(lookUp)'">
+					</div>
+				</div>
+					<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-show="lookUp" ng-show = "formdata.atr_data_type =='S' && !formdata.atr_data_type =='F' && !formdata.atr_data_type =='D' && !formdata.atr_data_type =='N'">
+					<label class="control-label col-sm-5" for="Lookup Code">Lookup Code</label>
+					<div class="col-sm-7">
+						<select id="atr_lookup_code" name="atr_lookup_code"
+							class="form-control" ng-model="formdata.atr_lookup_code" >
+							<option value="">Select</option>
+							<option ng-repeat="x in lookUparray">{{x}}</option>
+						</select>
+					</div>
+				</div>
+<!-- 				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="(!formdata.atr_object_type =='C' && !formdata.atr_data_type=='D') || (!formdata.atr_object_type =='C' && !formdata.atr_data_type=='S') || (!formdata.atr_object_type =='C' && !formdata.atr_data_type=='N') || (!formdata.atr_object_type =='C' && !formdata.atr_data_type=='F') || (!formdata.atr_object_type =='C' && !formdata.atr_data_type=='T') || (formdata.atr_object_type =='O' && !formdata.atr_data_type=='D') || (formdata.atr_object_type =='O' && formdata.atr_data_type=='S') || (formdata.atr_object_type =='O' && formdata.atr_data_type=='N') || (formdata.atr_object_type =='O' && formdata.atr_data_type=='F') || (formdata.atr_object_type =='O' && formdata.atr_data_type=='T')"> -->
+<!-- 					<label class="control-label col-sm-5" for="Required Offer Parameterized Attribute">Required Offer Parameterized Attribute</label> -->
+<!-- 					<div class="col-sm-7"> -->
+<!-- 						<input type="checkbox" id="atr_lookup_code" -->
+<!-- 							name="atr_lookup_code"> -->
+<!-- 					</div> -->
+<!-- 				</div>				 -->
+			<input
+					type="hidden" ng-model="formdata.atr_name"
+					ng-init="formdata.atr_name=''"> <input type="hidden"
+					ng-model="formdata.atr_name" ng-init="formdata.atr_name=''">
+				<input type="hidden" ng-model="formdata.atr_long_name"
+					ng-init="formdata.atr_long_name=''"> 
+					 <input
+					type="hidden" ng-model="formdata.atr_data_type"
+					ng-init="formdata.atr_data_type='user'"> <input type="hidden"
+					ng-model="formdata.atr_min_value" ng-init="formdata.atr_min_value=''">
+				<input type="hidden" ng-model="formdata.atr_max_value"
+					ng-init="formdata.atr_max_value=''"> <input type="hidden"
+					ng-model="formdata.atr_max_length" ng-init="formdata.atr_max_length=''">
+                 <input type="hidden"
+					ng-model="formdata.atr_id" ng-init="formdata.atr_id=''">
+					<input type="hidden"
+					ng-model="formdata.atr_sort_order" ng-init="formdata.atr_sort_order='1'">
+					<input type="hidden"
+					ng-model="formdata.createuser" ng-init="formdata.createuser=''">
+					<input type="hidden"
+					ng-model="formdata.createdate" ng-init="formdata.createdate=''">
+					<input type="hidden"
+					ng-model="formdata.lastmodified" ng-init="formdata.lastmodified=''">
+					<input type="hidden"
+					ng-model="formdata.atr_lookup_code" ng-init="formdata.atr_lookup_code =''">
+					</uib-tab>
+					
+					<uib-tab index="1" heading="Description">
+					<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+								<label class="control-label col-sm-5" for="Description">Description</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="atr_long_name"
+							name="atr_long_name" ng-model="formdata.atr_long_name">
+					</div>
+				    </div>
+					</uib-tab>
+					</uib-tabset>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<div class="pull-right">
+				<button type="submit" class="btn btn-primary btn-sm"
+					tool-tip-directive
+					title="{{ userForm?'':''}}"
+					ng-disabled="userForm.$invalid" )>Submit</button>
+				<button type="reset" class="btn btn-primary btn-sm" ng-if="!edit">Reset</button>
+				<button type="button" class="btn btn-primary btn-sm"
+					ng-click="resetForm()" ng-if="edit">Reset</button>
+			</div>
+		</div>
+</form>

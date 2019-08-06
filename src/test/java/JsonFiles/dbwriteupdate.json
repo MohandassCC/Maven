@@ -1,0 +1,40 @@
+ {
+  "wsCode": "",
+  "action": "U",
+  "tableName": "removeduplicates",
+  "keyColumn": "removedupid",
+  "keyValue": "17",
+  "columnValueMap": [
+    {
+      "removedupname": "asjuly24B",
+      "createuser": "admin",
+      "removedupdescription": "sdasassd",
+      "createdate": null,
+      "lastmodified": null,
+      "updatedate": null,
+      "matchattributes": "",
+      "parentkey": null,
+      "workflowid": "127",
+      "removedupid": "17",
+      "updateuser": null
+    }
+  ],
+  "columnDataTypeMap": {
+    "removedupid": "N",
+    "removedupname": "S",
+    "removedupdescription": "S",
+    "workflowid": "N",
+    "matchattributes": "S",
+    "parentkey": "S",
+    "createdate": "D",
+    "createuser": "S",
+    "updatedate": "D",
+    "updateuser": "S",
+    "lastmodified": "D"
+  },
+  "whereList": [],
+  "moduleCode": "",
+  "objectCode": "",
+  "csrfToken": "",
+  "childGetBean": []
+}

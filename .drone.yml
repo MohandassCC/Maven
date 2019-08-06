@@ -1,0 +1,8 @@
+workspace:
+  path: src/
+
+pipeline:
+  build:
+    image: maven:3.5.0-alpine
+    commands:
+      - mvn -B clean package
